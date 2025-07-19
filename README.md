@@ -56,7 +56,8 @@ pip install google-adk
     GOOGLE_API_KEY=your_api_key_here
     ```
 
-Deploying to Cloud and Setting Environment Variables
+## Deploying to Cloud and Setting Environment Variables
+
 Setup and Installation
 First, set your essential environment variables. These are required for the ADK to interact with your Google Cloud environment correctly.
 ```
@@ -64,35 +65,35 @@ export GOOGLE_CLOUD_PROJECT=your-project-id
 export GOOGLE_CLOUD_LOCATION=us-central1 # Or your preferred location
 export GOOGLE_GENAI_USE_VERTEXAI=True
 ```
-adk CLI Deployment
+ adk CLI Deployment
 The adk deploy cloud_run command is used to deploy your agent code to Google Cloud Run.
 
-1. Authenticate with Google Cloud
+ 1. Authenticate with Google Cloud
 Before deploying, ensure you have authenticated your gcloud CLI and configured it with your project.
 ```
 gcloud auth login
 gcloud config set project <your-project-id>
 ```
-2. Setup Environment Variables for Deployment
+ 2. Setup Environment Variables for Deployment
 While optional, setting these environment variables can make your deployment commands cleaner and less prone to errors.
 
-# Set your Google Cloud Project ID
+## Set your Google Cloud Project ID
 ```
 export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
 ```
-# Set your desired Google Cloud Location
+## Set your desired Google Cloud Location
 ```
 export GOOGLE_CLOUD_LOCATION="us-central1" # Example location
 ```
-# Set the path to your agent code directory
+## Set the path to your agent code directory
 ```
 export AGENT_PATH="./capital_agent" # Assuming capital_agent is in the current directory
 ```
-# Set a name for your Cloud Run service (optional)
+## Set a name for your Cloud Run service (optional)
 ```
 export SERVICE_NAME="capital-agent-service"
 ```
-# Set an application name (optional)
+## Set an application name (optional)
 ```
 export APP_NAME="capital-agent-app"
 ```
