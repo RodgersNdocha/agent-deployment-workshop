@@ -30,3 +30,22 @@ You only need to create one virtual environment for all the examples. Follow the
         ```powershell
         .venv\Scripts\Activate.ps1
         ```
+Once set up, this single environment will work for all examples in the repository.
+
+---
+
+## Setting Up API Keys
+
+1.  Create an account on **Google Cloud**: [https://cloud.google.com/](https://cloud.google.com/)
+2.  Create a **new project**.
+3.  Go to the API key creation page in **Google AI Studio**: [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+4.  Click to **Create an API key**.
+5.  **Assign the key** to the project you created.
+6.  Ensure your project is connected to a **billing account**.
+7.  Navigate to the specific example folder you are working with.
+8.  Open the `.env` file and replace the placeholder with your actual API key:
+
+    ```env
+    GOOGLE_API_KEY=your_api_key_here
+    ```
+
