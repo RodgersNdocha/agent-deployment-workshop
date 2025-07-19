@@ -36,7 +36,7 @@ First, activate your virtual environment, then run the following command to inst
 
 ```bash
 pip install google-adk
-
+```
 
 ---
 
