@@ -118,4 +118,57 @@ adk deploy cloud_run \
 --app_name=$APP_NAME \
 --with_ui \
 $AGENT_PATH
+
+```
+
+export GOOGLE_CLOUD_PROJECT="genapps2"
+export GOOGLE_CLOUD_LOCATION="us-central1"
+export AGENT_PATH=./google-search-agent
+export SERVICE_NAME=google-search-agent
+export APP_NAME=google-search-agent-app
+
+adk deploy cloud_run \
+--project=$GOOGLE_CLOUD_PROJECT \
+--region=$GOOGLE_CLOUD_LOCATION \
+--service_name=$SERVICE_NAME \
+--app_name=$APP_NAME \
+--with_ui \
+$AGENT_PATH
+
+GOOGLE_API_KEY=AIzaSyAplWkORuxZnZ_p6KYE907O2XRSKcSvn9c
+
+
+export GOOGLE_CLOUD_PROJECT=genapps2
+export GOOGLE_CLOUD_LOCATION=us-central1
+export GOOGLE_GENAI_USE_VERTEXAI=True
+
+
+
+
+
+export APP_URL=https://google-search-agent-335086492404.us-central1.run.app
+export TOKEN=$(gcloud auth print-identity-token)
+
+curl -X POST -H "Authorization: Bearer $TOKEN" \
+    $APP_URL/apps/google-search-agent/users/user_123/sessions/session_abc \
+    -H "Content-Type: application/json" \
+    -d '{"state": {"preferred_language": "English", "visit_count": 5}}'
+
+
+curl -X POST https://google-search-agent-335086492404.us-central1.run.app/run_sse \
+  -H "Content-Type: application/json" \
+  -d '{
+    "app_name": "google-search-agent",
+    "user_id": "user_123",
+    "session_id": "session_abc",
+    "new_message": {
+      "role": "user",
+      "parts": [{
+        "text": "What is the capital of Canada?"
+      }]
+    },
+    "streaming": false
+  }'
+
+
 ```
