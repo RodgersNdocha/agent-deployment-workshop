@@ -30,9 +30,16 @@ You only need to create one virtual environment for all the examples. Follow the
         ```powershell
         .venv\Scripts\Activate.ps1
         ```
-Once set up, this single environment will work for all examples in the repository.
+## Install Google ADK
+
+First, activate your virtual environment, then run the following command to install Google ADK:
+
+```bash
+pip install google-adk
+
 
 ---
+
 
 ## Setting Up API Keys
 
